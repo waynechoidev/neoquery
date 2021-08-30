@@ -1,0 +1,24 @@
+{
+  "name": "neoquery",
+  "version": "1.0.0",
+  "description": "NeoQuery is a js library to help DOM manipulation, and event handling with easy syntax.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waynethebb/neoquery.git"
+  },
+  "keywords": [
+    "neoQuery",
+    "js"
+  ],
+  "author": "Wayne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waynethebb/neoquery/issues"
+  },
+  "homepage": "https://github.com/waynethebb/neoquery#readme",
+  "type": "module"
+}
