@@ -1,4 +1,4 @@
-import { parse } from "./lib.js";
+import { parse } from "../lib.js";
 
 export default class OutsideInserter {
   static after(coreThis, html) {

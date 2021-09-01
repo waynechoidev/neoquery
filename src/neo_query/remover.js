@@ -7,6 +7,11 @@ export default class Remover {
   }
 
   static remove(coreThis, selector) {
+    if (!selector) {
+      console.error(
+        "No selector for remove(). If you want to remove all matched elements, please use removeAll()."
+      );
+    }
     coreThis.element.forEach((parentNode) => {
       parentNode.querySelectorAll(selector).forEach((node) => {
         node.remove();

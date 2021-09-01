@@ -1,23 +1,27 @@
-import Core from "./core.js";
+import Starter from "./starter.js";
 import InsideInserter from "./inside_inserter.js";
-import OutsideInserter from "./outside_inserter";
+import OutsideInserter from "./outside_inserter.js";
 import Replacer from "./replacer.js";
 import Remover from "./remover.js";
 
 export default class NeoQuery {
   constructor() {
+    /*NodeList.prototype.push = function (element) {
+      NodeList[1] = "1";
+      console.log(element);
+    };*/
     this.element;
     //return this in all methods
     //to create fluent interface
     //for method chaining like "jQuery"
   }
 
-  // $() the core function
+  // $() the starter function
   selectQuery(query) {
-    return Core.selectQuery(this, query);
+    return Starter.selectQuery(this, query);
   }
   createHTML(html) {
-    return Core.createHTML(this, html);
+    return Starter.createHTML(this, html);
   }
 
   // DOM Manipulation
