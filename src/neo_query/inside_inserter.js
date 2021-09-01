@@ -1,6 +1,6 @@
 import { parse } from "./lib.js";
 
-export default class InsertionInside {
+export default class InsideInserter {
   static append(coreThis, html) {
     if (coreThis.element) {
       coreThis.element.forEach((node) => {

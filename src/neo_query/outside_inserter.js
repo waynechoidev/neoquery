@@ -1,6 +1,6 @@
 import { parse } from "./lib.js";
 
-export default class InsertionOutside {
+export default class OutsideInserter {
   static after(coreThis, html) {
     const newNode = parse(html);
     coreThis.element.forEach((node) => {

@@ -1,9 +1,8 @@
-import { parse } from "./lib.js";
 import Core from "./core.js";
-import InsertionInside from "./insertion_inside.js";
-import InsertionOutside from "./insertion_outside.js";
-import Replacement from "./replacement.js";
-import Removal from "./removal.js";
+import InsideInserter from "./inside_inserter.js";
+import OutsideInserter from "./outside_inserter";
+import Replacer from "./replacer.js";
+import Remover from "./remover.js";
 
 export default class NeoQuery {
   constructor() {
@@ -24,40 +23,40 @@ export default class NeoQuery {
   // DOM Manipulation
   // Insertion, inside
   append(html) {
-    return InsertionInside.append(this, html);
+    return InsideInserter.append(this, html);
   }
   appendTo(selector) {
-    return InsertionInside.appendTo(this, selector);
+    return InsideInserter.appendTo(this, selector);
   }
   prepend(html) {
-    return InsertionInside.prepend(this, html);
+    return InsideInserter.prepend(this, html);
   }
   prependTo(selector) {
-    return InsertionInside.prependTo(this, selector);
+    return InsideInserter.prependTo(this, selector);
   }
 
   // Insertion, outside
   after(html) {
-    return InsertionOutside.after(this, html);
+    return OutsideInserter.after(this, html);
   }
   before(html) {
-    return InsertionOutside.before(this, html);
+    return OutsideInserter.before(this, html);
   }
   clone() {
-    return InsertionOutside.clone(this);
+    return OutsideInserter.clone(this);
   }
 
-  // Replacement
+  // Replacer
 
-  // Removal
+  // Remover
   empty() {
-    return Removal.empty(this);
+    return Remover.empty(this);
   }
   remove(selector) {
-    return Removal.remove(this, selector);
+    return Remover.remove(this, selector);
   }
   removeAll() {
-    return Removal.removeAll(this);
+    return Remover.removeAll(this);
     //finish chaining method
   }
 

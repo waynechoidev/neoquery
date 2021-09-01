@@ -1,4 +1,4 @@
-export default class Core {
+export default class Starter {
   static selectQuery(coreThis, query) {
     if (coreThis.element != null) {
       throw new Error("already selected");

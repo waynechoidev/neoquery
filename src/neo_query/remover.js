@@ -1,4 +1,4 @@
-export default class Removal {
+export default class Remover {
   static empty(coreThis) {
     coreThis.element.forEach((node) => {
       node.innerHTML = "";
