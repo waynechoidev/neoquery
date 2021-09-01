@@ -11,14 +11,19 @@ export default class InsertionInside {
   }
 
   static appendTo(coreThis, selector) {
-    const nodeList = document.querySelectorAll(selector);
-    if (nodeList.length === 1) {
-      coreThis.element.forEach((node) => {
-        nodeList[0].appendChild(node);
+    const target = document.querySelectorAll(selector);
+    const nodeList = Array.from(coreThis.element);
+    nodeList.forEach((node) => {
+      target[0].appendChild(node);
+    });
+    for (let i = 1; i < target.length; i++) {
+      nodeList.forEach((node) => {
+        const clone = node.cloneNode(true);
+        target[i].appendChild(clone);
+        nodeList.push(clone);
       });
-    } else {
-      throw new Error("Number of target node must be 1.");
     }
+    coreThis.element = nodeList;
     return coreThis;
   }
 
@@ -32,14 +37,19 @@ export default class InsertionInside {
   }
 
   static prependTo(coreThis, selector) {
-    const nodeList = document.querySelectorAll(selector);
-    if (nodeList.length === 1) {
-      coreThis.element.forEach((node) => {
-        nodeList[0].insertBefore(node, nodeList[0].firstChild);
+    const target = document.querySelectorAll(selector);
+    const nodeList = Array.from(coreThis.element);
+    nodeList.forEach((node) => {
+      target[0].insertBefore(node, target[0].firstChild);
+    });
+    for (let i = 1; i < target.length; i++) {
+      nodeList.forEach((node) => {
+        const clone = node.cloneNode(true);
+        target[i].insertBefore(clone, target[i].firstChild);
+        nodeList.push(clone);
       });
-    } else {
-      throw new Error("Number of target node must be 1.");
     }
+    coreThis.element = nodeList;
     return coreThis;
   }
 }
