@@ -2,7 +2,6 @@ import NeoQuery from "./neo_query/index.js";
 
 export default function $(query, isHTML) {
   //isHTML = optional argument
-
   if (typeof query === "function") {
     return document.addEventListener("DOMContentLoaded", query, { once: true });
   }

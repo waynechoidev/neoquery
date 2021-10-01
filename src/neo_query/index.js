@@ -106,12 +106,6 @@ export default class NeoQuery {
   parent() {
     return Traverser.parent(this);
   }
-  next() {
-    return Traverser.next(this);
-  }
-  prev() {
-    return Traverser.prev(this);
-  }
   eq(number) {
     return Traverser.eq(this, number);
   }
@@ -126,55 +120,4 @@ export default class NeoQuery {
   off(event) {
     return EventHandler.one(this, event);
   }
-
-  attr() {
-    let attributeList = [];
-    this.element.forEach((node) => {
-      attributeList.push(node.getAttribute(attributeName));
-    });
-    return attributeList.join();
-    //finish chaining method
-  }
-
-  prop() {
-    let propertyList = [];
-    this.element.forEach((node) => {
-      propertyList.push(node[propertyName]);
-    });
-    return propertyList.join();
-    //finish chaining method
-  }
-
-  text() {
-    let valueList = [];
-    this.element.forEach((node) => {
-      valueList.push(node.textContent);
-    });
-    return valueList.join();
-    //finish chaining method
-  }
-
-  html(html) {
-    if (!html) {
-      let result = "";
-      this.element.forEach((node) => {
-        result = result + node.outerHTML;
-      });
-      return result;
-      //finish chaining method
-    }
-    for (let i = 0; i < this.element.length; i++) {
-      this.element.forEach((node) => (node.innerHTML = html));
-    }
-    return this;
-  }
-  //traversing
-
-  //event
-
-  //style
-
-  //dimension
-
-  //inspection
 }

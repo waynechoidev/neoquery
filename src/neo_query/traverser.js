@@ -26,24 +26,6 @@ export default class Traverser {
     return coreThis;
   }
 
-  static next(coreThis) {
-    const newElement = [];
-    coreThis.element.forEach((node) => {
-      newElement.push(node.nextSibling);
-    });
-    coreThis.element = newElement;
-    return coreThis;
-  }
-
-  static prev(coreThis) {
-    const newElement = [];
-    coreThis.element.forEach((node) => {
-      newElement.push(node.previousSibling);
-    });
-    coreThis.element = newElement;
-    return coreThis;
-  }
-
   static eq(coreThis, number) {
     const newElement = [];
 
@@ -56,7 +38,7 @@ export default class Traverser {
       }
       const child = node.children[index];
       if (!child) {
-        console.error("Invalid index number");
+        throw new Error("Invalid index number");
       }
       newElement.push(child);
     });

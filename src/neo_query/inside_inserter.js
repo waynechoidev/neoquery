@@ -2,11 +2,16 @@ import { parse } from "../lib.js";
 
 export default class InsideInserter {
   static append(coreThis, html) {
-    if (coreThis.element) {
-      coreThis.element.forEach((node) => {
-        node.appendChild(parse(html));
-      });
-    }
+    coreThis.element.forEach((node) => {
+      node.appendChild(parse(html));
+    });
+    return coreThis;
+  }
+
+  static prepend(coreThis, html) {
+    coreThis.element.forEach((node) => {
+      node.insertBefore(parse(html), node.firstChild);
+    });
     return coreThis;
   }
 
@@ -26,15 +31,6 @@ export default class InsideInserter {
       });
     }
     coreThis.element = newElement;
-    return coreThis;
-  }
-
-  static prepend(coreThis, html) {
-    if (coreThis.element) {
-      coreThis.element.forEach((node) => {
-        node.insertBefore(parse(html), node.firstChild);
-      });
-    }
     return coreThis;
   }
 
