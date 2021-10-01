@@ -3,6 +3,7 @@ import InsideInserter from "./inside_inserter.js";
 import OutsideInserter from "./outside_inserter.js";
 import Replacer from "./replacer.js";
 import Remover from "./remover.js";
+import AttributerEditor from "./attribute_editor.js";
 
 export default class NeoQuery {
   constructor() {
@@ -73,70 +74,42 @@ export default class NeoQuery {
     //finish chaining method
   }
 
-  addClass() {
-    let argumentList = [];
-    for (let i = 0; i < arguments.length; i++) {
-      argumentList.push(arguments[i]);
-    }
-    this.element.forEach((node) => {
-      argumentList.map((argument) => {
-        node.classList.add(argument);
-      });
-    });
-    return this;
+  //Attribute Manipulation
+  addClass(className) {
+    return AttributerEditor.addClass(this, className);
   }
-
-  attr(attributeName, value) {
-    if (!value) {
-      let attributeList = [];
-      this.element.forEach((node) => {
-        attributeList.push(node.getAttribute(attributeName));
-      });
-      return attributeList.join();
-      //finish chaining method
-    } else {
-      this.element.forEach((node) => {
-        node.setAttribute(attributeName, value);
-      });
-      return this;
-    }
-  }
-
-  prop(propertyName, value) {
-    if (!value) {
-      let propertyList = [];
-      this.element.forEach((node) => {
-        propertyList.push(node[propertyName]);
-      });
-      return propertyList.join();
-      //finish chaining method
-    } else {
-      this.element.forEach((node) => {
-        node[propertyName] = value;
-      });
-      return this;
-    }
-  }
-
-  removeAttr(attributeName) {
-    this.element.forEach((node) => {
-      node.removeAttribute(attributeName);
-    });
-    return this;
-  }
-
   removeClass(className) {
-    this.element.forEach((node) => {
-      node.classList.remove(className);
-    });
-    return this;
+    return AttributerEditor.removeClass(this, className);
+  }
+  addAttr() {
+    return AttributerEditor.addAttr(this, attributeName, value);
+  }
+  removeAttr() {
+    return AttributerEditor.removeAttr(this, attributeName);
+  }
+  addProp() {
+    return AttributerEditor.addProp(this, propertyName, value);
+  }
+  removeProp() {
+    return AttributerEditor.removeProp(this, propertyName);
   }
 
-  removeProp(propertyName) {
+  attr() {
+    let attributeList = [];
     this.element.forEach((node) => {
-      delete node[propertyName];
+      attributeList.push(node.getAttribute(attributeName));
     });
-    return this;
+    return attributeList.join();
+    //finish chaining method
+  }
+
+  prop() {
+    let propertyList = [];
+    this.element.forEach((node) => {
+      propertyList.push(node[propertyName]);
+    });
+    return propertyList.join();
+    //finish chaining method
   }
 
   text() {
@@ -162,12 +135,6 @@ export default class NeoQuery {
     }
     return this;
   }
-  //html은 인스펙션 용으로만 쓰고, replaceAll, replaceWith, replaceInside로 바꾸기.
-
-  now() {
-    return this.element;
-  } //이건 1,2,3, all 아규먼트 받기.노드 혹은 리스트 아규먼트 없으면 0.
-
   //traversing
 
   //event
