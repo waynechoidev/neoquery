@@ -4,6 +4,7 @@ import OutsideInserter from "./outside_inserter.js";
 import Replacer from "./replacer.js";
 import Remover from "./remover.js";
 import AttributerEditor from "./attribute_editor.js";
+import Traverser from "./traverser.js";
 
 export default class NeoQuery {
   constructor() {
@@ -74,24 +75,44 @@ export default class NeoQuery {
     //finish chaining method
   }
 
-  //Attribute Manipulation
+  // Attribute Manipulation
   addClass(className) {
     return AttributerEditor.addClass(this, className);
   }
   removeClass(className) {
     return AttributerEditor.removeClass(this, className);
   }
-  addAttr() {
+  addAttr(attributeName, value) {
     return AttributerEditor.addAttr(this, attributeName, value);
   }
-  removeAttr() {
+  removeAttr(attributeName) {
     return AttributerEditor.removeAttr(this, attributeName);
   }
-  addProp() {
+  addProp(propertyName, value) {
     return AttributerEditor.addProp(this, propertyName, value);
   }
-  removeProp() {
+  removeProp(propertyName) {
     return AttributerEditor.removeProp(this, propertyName);
+  }
+
+  // Traversing
+  children() {
+    return Traverser.children(this);
+  }
+  find(selector) {
+    return Traverser.find(this, selector);
+  }
+  parent() {
+    return Traverser.parent(this);
+  }
+  next() {
+    return Traverser.next(this);
+  }
+  prev() {
+    return Traverser.prev(this);
+  }
+  eq(number) {
+    return Traverser.eq(this, number);
   }
 
   attr() {
