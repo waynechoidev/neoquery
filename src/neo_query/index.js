@@ -5,6 +5,7 @@ import Replacer from "./replacer.js";
 import Remover from "./remover.js";
 import AttributerEditor from "./attribute_editor.js";
 import Traverser from "./traverser.js";
+import EventHandler from "./event_handler.js";
 
 export default class NeoQuery {
   constructor() {
@@ -113,6 +114,17 @@ export default class NeoQuery {
   }
   eq(number) {
     return Traverser.eq(this, number);
+  }
+
+  // Event handling
+  on(event, handler) {
+    return EventHandler.on(this, event, handler);
+  }
+  one(event, handler) {
+    return EventHandler.one(this, event, handler);
+  }
+  off(event) {
+    return EventHandler.one(this, event);
   }
 
   attr() {

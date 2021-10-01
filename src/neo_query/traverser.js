@@ -46,15 +46,15 @@ export default class Traverser {
 
   static eq(coreThis, number) {
     const newElement = [];
-    let index;
-    if (-coreThis.length <= number < 0) {
-      console.log(-coreThis.length);
-      index = coreThis.length + number;
-    } else {
-      index = number;
-    }
+
     coreThis.element.forEach((node) => {
-      const child = node.children[number];
+      let index;
+      if (number < 0) {
+        index = node.children.length + number;
+      } else {
+        index = number;
+      }
+      const child = node.children[index];
       if (!child) {
         console.error("Invalid index number");
       }
