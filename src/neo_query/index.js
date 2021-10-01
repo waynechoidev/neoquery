@@ -51,6 +51,15 @@ export default class NeoQuery {
   }
 
   // Replacer
+  replaceAll(selector) {
+    return Replacer.replaceAll(this, selector);
+  }
+  replaceInside(html) {
+    return Replacer.replaceInside(this, html);
+  }
+  replaceWith(html) {
+    return Replacer.replaceWith(this, html);
+  }
 
   // Remover
   empty() {
