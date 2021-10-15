@@ -23,6 +23,6 @@
   "bugs": {
     "url": "https://github.com/waynethebb/neoquery/issues"
   },
-  "homepage": "https://github.com/waynethebb/neoquery#readme",
+  "homepage": "https://github.com/waynethebb/neoquery",
   "type": "module"
 }

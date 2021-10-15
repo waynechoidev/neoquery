@@ -16,7 +16,7 @@ import $ from "./node_modules/neoquery/dist/neoquery.js";
 
 ## API Documentation
 
-[Link](https://github.com/waynethebb/neoquery/documents/api.md)
+[Link](https://github.com/waynethebb/neoquery/blob/main/documents/api.md)
 
 ## NeoQuery, the simplified jQuery
 
