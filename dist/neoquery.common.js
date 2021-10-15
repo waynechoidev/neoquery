@@ -1,4 +1,4 @@
-import NeoQuery from "./neo_query/index.js";
+import NeoQuery from "../src/neo_query/index.js";
 
 export default function $(query, isHTML) {
   //isHTML = optional argument

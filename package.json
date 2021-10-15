@@ -1,21 +1,25 @@
 {
   "name": "neoquery",
-  "version": "1.0.0",
-  "description": "NeoQuery is a js library to help DOM manipulation, and event handling with easy syntax.",
-  "main": "main.js",
+  "version": "0.9.0",
+  "description": "NeoQuery is a fast and small JavaScript library to traversal and manipulate the HTML DOM (Document Object Model) with simple syntax.",
+  "main": "dist/neoquery.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waynethebb/neoquery.git"
+    "url": "https://github.com/waynethebb/neoquery.git"
   },
   "keywords": [
     "neoQuery",
     "js"
   ],
-  "author": "Wayne",
-  "license": "ISC",
+  "author": {
+    "name": "Wayne Choi",
+    "email": "wonjun92@gmail.com",
+    "url": "https://waynechoi.dev"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/waynethebb/neoquery/issues"
   },
